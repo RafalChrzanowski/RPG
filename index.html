@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Labirynt V2</title>
+    <script type="text/javascript" src="skrypt.js"></script>
+    <style>
+
+    * {cursor: url(http://cur.cursors-4u.net/games/gam-13/gam1232.ani), url(http://cur.cursors-4u.net/games/gam-13/gam1232.png), auto !important;}
+
+    body{
+        font-family: 'MedievalSharp', cursive !important;
+
+    margin:0;
+    padding:0;
+    color: white;
+    
+}
+.button_big{
+    max-width: 25%;
+    height:auto;
+    -webkit-filter: brightness(100%);
+	-moz-filter: brightness(100%);
+	-o-filter: brightness(100%);
+	-ms-filter: brightness(100%);
+	filter: brightness(100%);
+}
+.button_smol{
+    max-width: 11%;
+    height:auto;
+    -webkit-filter: brightness(100%);
+	-moz-filter: brightness(100%);
+	-o-filter: brightness(100%);
+	-ms-filter: brightness(100%);
+	filter: brightness(100%);
+}
+#losuj{
+    height:auto;
+    -webkit-filter: brightness(100%);
+	-moz-filter: brightness(100%);
+	-o-filter: brightness(100%);
+	-ms-filter: brightness(100%);
+	filter: brightness(100%);
+    display:block;
+        margin-left:auto;
+        margin-right:auto;
+        position:relative;
+        top: 30vh;
+        width:20vw;
+}
+.button_big:hover{
+    -webkit-filter: brightness(70%);
+	-moz-filter: brightness(70%);
+	-o-filter: brightness(70%);
+	-ms-filter: brightness(70%);
+	filter: brightness(70%);
+}
+.button_smol:hover{
+    -webkit-filter: brightness(70%);
+	-moz-filter: brightness(70%);
+	-o-filter: brightness(70%);
+	-ms-filter: brightness(70%);
+	filter: brightness(70%);
+}
+#losuj:hover{
+    -webkit-filter: brightness(70%);
+	-moz-filter: brightness(70%);
+	-o-filter: brightness(70%);
+	-ms-filter: brightness(70%);
+	filter: brightness(70%);
+}
+
+.intro{
+    min-height:100%;
+    min-width:100%;
+    background-image: url("img/interfejs/back3.jpg");
+    position:fixed;
+    top:0;
+    z-index: 100;
+}
+#title{
+    position:fixed;
+    font-family: 'MedievalSharp', cursive;
+    font-size: 100px;
+    top:12vh;
+    left: 37vw;
+    color: #f5f5f5;
+    text-shadow:
+    0px -2px 4px #fff,
+    0px -2px 10px #FF3,
+    0px -10px 20px #F90,
+    0px -20px 40px #C33;
+}
+.opis-menu{
+    background-image: url("img/opis-tlo3.png");
+    background-size: 100vw 100vh;
+    position:fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index:101;
+    color: black;
+    padding-left: 6vw;
+    padding-right: 6vw;
+    padding-top: 15vh;
+    padding-bottom: 15vh;
+    font-family: 'MedievalSharp', cursive !important;
+    font-size: 40px;
+}
+.opis-tekst{
+    position:relative;
+    top: 3vh;
+    width: 80vw;
+    height:auto;
+    text-align: center;
+}
+#start{
+    position:fixed;
+    top: 31.5vh;
+    left: 38vw;
+}
+#howto{
+    position:fixed;
+    top: 45.5vh;
+    left: 45.4vw;
+}
+
+#opcje{
+    position:fixed;
+    top:54.5vh;
+    left:45.4vw;
+}
+
+#tworcy{
+    position:fixed;
+    top: 63.5vh;
+    left:45.4vw;
+}
+
+#wyjdz{
+    position:fixed;
+    top:73vh;
+    left:38vw;
+}
+
+.zamknij{
+    max-height:8%;
+    width:auto;
+    position:fixed;
+    top:12vh;
+    right:7vw;
+    z-index: 102;
+    -webkit-filter: brightness(100%);
+	-moz-filter: brightness(100%);
+	-o-filter: brightness(100%);
+	-ms-filter: brightness(100%);
+	filter: brightness(100%);
+}
+
+.zamknij:hover{
+    -webkit-filter: brightness(70%);
+	-moz-filter: brightness(70%);
+	-o-filter: brightness(70%);
+	-ms-filter: brightness(70%);
+	filter: brightness(70%);
+}
+
+#mapa{
+    margin:0;
+    height:100vh;
+    width:50.33vw;
+    float:left;
+    background-color: black;
+}
+
+#zakladki{
+    display:block;
+    height:7.3vh;
+    padding:1vh 1vw 1vh 1vw;
+}
+
+#menu{
+    margin:0;
+    height:100vh;
+    width:49.67vw;
+    float:left;
+    background-color: crimson;
+    background-image: url("img/interfejs/zakladki_back2.jpg");
+}
+#wrapper{
+    height:100vh;
+    width:100vw;
+    margin:0;
+    overflow:hidden;
+}
+
+.content{
+    padding-top:4vh;
+    padding-bottom: 2vh;
+    padding-left:2vw;
+    padding-right: 2vw;
+    display: none;
+    height:85vh;
+}
+
+#contentKomunikaty{
+    overflow:hidden;
+}
+#contentWalka{
+    position:relative;
+    top:5vh;
+}
+
+#bohaterowie{
+    margin:auto;
+}
+#bohaterowie2{
+    margin:auto;
+}
+
+
+.bohater_jpg{
+    width:8vw;
+    height:16vh;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+.potwory_jpg{
+    width:8vw;
+    height:16vh;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+td{
+    margin-left:1vw;
+}
+.opis_bohaterow{
+    font-size: 14px;
+    padding-right:1vw;
+    padding-top:2vh;
+}
+#toastKomunikaty{
+    display:none;
+    position:fixed;
+    bottom:0px;
+    height: 4vh;
+    width:100vw;
+    background-color: rgba(0,0,0,0.7);
+    padding-left: 0.8vw;
+    padding-top: 0.4vh;
+    padding-bottom: 0.4vh;
+    font-size: 3vh;
+}
+.eq{
+    border: medium solid gray;
+    height:8vh;
+    margin:8px;
+    width: 4vw;
+    float:left;
+}
+#czary1{
+    float:left;
+    position:relative;
+    right:1.3vw;
+}
+#czary2{
+    float:left;
+    position:relative;
+    left:0.2vw;
+}
+#czary3{
+    float:left;
+    position:relative;
+    left:1.7vw;
+}
+#hpP {
+  float:left;
+  position:relative;
+  left:9.5vw;
+}
+#hpP1 {
+  float:left;
+  position:relative;
+  left:16.7vw;
+}
+#hpP2 {
+  float:left;
+  position: relative;
+  left:23.7vw;
+}
+#hpP_opis{
+    float:left;
+    position:relative;
+    left:5vw;
+}
+#hp {
+  float:left;
+  position:relative;
+  right:3.7vw;
+}
+#hp1 {
+  float:left;
+  position:relative;
+  left:2.7vw;
+}
+#hp2 {
+  float:left;
+  position: relative;
+  left:10.3vw;
+}
+#hp_opis{
+    float:left;
+    position:relative;
+    right:8vw;
+}
+#mana1 {
+  float:left;
+  position: relative;
+  right:3.5vw;
+}
+#mana2 {
+  float:left;
+  position: relative;
+  left:3.8vw;
+}
+#mana3 {
+  float:left;
+  position: relative;
+  left:12.3vw;
+}
+#mana_opis{
+    float:left;
+    position:relative;
+    right:8vw;
+}
+#czaruj3{
+    position:relative;
+    left:13.6vw;
+}
+#czaruj2{
+    position:relative;
+    left:12.7vw;
+}
+#czaruj1{
+    position:relative;
+    left:11.5vw;
+}
+.button_disabled{
+    opacity: 0.2;
+}
+#gupek_ze_mnei{
+    background-color: rgba(0,0,0,0.7);
+    padding-top:3vh;
+    padding-bottom:4.5vh;
+}
+
+.jeden{background-image: url("img/pomieszczenia/1.png");
+        background-size: cover}
+	 .dwa{background-image: url("img/pomieszczenia/2.png");
+        background-size: cover}
+	 .trzy{background-image: url("img/pomieszczenia/3.png");
+        background-size: cover}
+     .cztery{background-image: url("img/pomieszczenia/4.png");
+        background-size: cover}
+     .piec{background-image: url("img/pomieszczenia/5.png");
+        background-size: cover}
+     .szesc{background-image: url("img/pomieszczenia/6.png");
+        background-size: cover}
+     .siedem{background-image: url("img/pomieszczenia/7.png");
+        background-size: cover}
+     .osiem{background-image: url("img/pomieszczenia/8.png");
+        background-size: cover}
+     .dziewiec{background-image: url("img/pomieszczenia/9.png");
+        background-size: cover}
+     .dziesiec{background-image: url("img/pomieszczenia/10.png");
+        background-size: cover}
+     .jedenascie{background-image: url("img/pomieszczenia/11.png");
+        background-size: cover}
+     .dwanascie{background-image: url("img/pomieszczenia/12.png");
+        background-size: cover}
+     .trzynascie{background-image: url("img/pomieszczenia/13.png");
+        background-size: cover}
+     .czternascie{background-image: url("img/pomieszczenia/14.png");
+        background-size: cover}
+     .pietnascie{background-image: url("img/pomieszczenia/15.png");
+        background-size: cover}
+     .szescnascie{background-image: url("img/pomieszczenia/16.png");
+        background-size: cover}
+     .siedemnascie{background-image: url("img/pomieszczenia/17.png");
+        background-size: cover}
+     .osiemnascie{background-image: url("img/pomieszczenia/18.png");
+        background-size: cover}
+	 .dziewietnascie{background-image: url("img/pomieszczenia/19.png");
+        background-size: cover}
+	 .dwadziescia{background-image: url("img/pomieszczenia/20.png");
+        background-size: cover}
+	 .dwadziesciajeden{background-image: url("img/pomieszczenia/21.png");
+        background-size: cover}
+	 .dwadziesciadwa{background-image: url("img/pomieszczenia/22.png");
+        background-size: cover}
+	 .dwadziesciatrzy{background-image: url("img/pomieszczenia/23.png");
+        background-size: cover}
+	 .dwadziesciacztery{background-image: url("img/pomieszczenia/24.png");
+        background-size: cover}
+	 .dwadziesciapiec{background-image: url("img/pomieszczenia/25.png");
+        background-size: cover}
+	 .dwadziesciaszesc{background-image: url("img/pomieszczenia/26.png");
+        background-size: cover}
+	 .dwadziesciasiedem{background-image: url("img/pomieszczenia/27.png");
+        background-size: cover}
+	 .dwadziesciaosiem{background-image: url("img/pomieszczenia/28.png");
+        background-size: cover}
+     .dwadziesciadziewiec{background-image: url("img/pomieszczenia/29.png");
+        background-size: cover}
+     .player{background-image: url("img/pomieszczenia/odzial.png");
+        background-size: cover}
+	 .pozycja{
+		position:absolute;
+		width:138px;
+		height:138px;
+	 }
+     .zakryte{
+         background-image: url("img/pomieszczenia/zakryte.png")
+     }
+     .menu-button{
+         width: 9.3vw;
+         height: auto;
+         -webkit-filter: brightness(100%);
+	    -moz-filter: brightness(100%);
+	    -o-filter: brightness(100%);
+	    -ms-filter: brightness(100%);
+	    filter: brightness(100%);
+     }
+     .menu-button:hover{
+        -webkit-filter: brightness(70%);
+	-moz-filter: brightness(70%);
+	-o-filter: brightness(70%);
+	-ms-filter: brightness(70%);
+	filter: brightness(70%);
+     }
+     #druzyna{
+         
+        display:block;
+        margin-left:auto;
+        margin-right:auto;
+        position:relative;
+        top: 20vh;
+        width:24.8vw;
+        height:auto;
+        background-color: rgba(0,0,0,0.7);
+        padding: 2vh 2vw;
+    }
+     #siema{
+        position:relative;
+        left: 5.5vw;
+    }
+    #siemaa{
+        background-color: rgba(0,0,0,0.7);
+    }
+    .button_atacc{
+        width:7vw;
+        height:auto;
+        -webkit-filter: brightness(100%);
+	    -moz-filter: brightness(100%);
+	    -o-filter: brightness(100%);
+	    -ms-filter: brightness(100%);
+	    filter: brightness(100%);
+        
+    }
+    .button_atacc:hover{
+        -webkit-filter: brightness(70%);
+	-moz-filter: brightness(70%);
+	-o-filter: brightness(70%);
+	-ms-filter: brightness(70%);
+	filter: brightness(70%);
+    }
+    #bohaterowieWalka{
+        position:relative;
+        left:11vw;
+    }
+    #potworyWalka{
+        position:relative;
+        left:11vw;
+    }
+    #span_atacc{
+        position:relative;
+        left:16.5vw;
+    }
+    #span_czary{
+        position:relative;
+        left:13vw;
+    }
+    #spelle{
+        position:relative;
+        left:13vw;
+    }
+    
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=MedievalSharp" rel="stylesheet">
+    
+</head>
+<body onload="titlescreen_music.play()">
+    <div class="intro" id="titlescreen">
+        <div id="title">Labirynt V2</div>
+        <img id="start" class="button_big" src="img/interfejs/graj.png" onclick="graj()">
+        <img id="howto" class="button_smol" src="img/interfejs/howto.png" onclick="howto()">
+        <img id="opcje" class="button_smol" src="img/interfejs/opcje.png" onclick="opcje()">
+        <img id="tworcy" class="button_smol" src="img/interfejs/tworcy.png" onclick="tworcy()">
+        <img id="wyjdz" class="button_big" src="img/interfejs/wyjdz.png" onclick="window.close()">
+
+    </div>
+    <div class="intro" id="settings" style="display:none">
+        <img class="zamknij" src="img/interfejs/zamknij.png" onclick="opcjeZamknij()">
+        <div class="opis-menu">
+            <div class="opis-tekst">
+                <b>Włącz/wyłącz dźwięki gry: </b>
+                <button onclick="soundToggle()">Naciśnij</button>
+            </div>
+        </div>
+    </div>
+    <div class="intro" id="howtoo" style="display:none">
+        <img class="zamknij" src="img/interfejs/zamknij.png" onclick="howtoZamknij()">
+        <div class="opis-menu">
+            <div class="opis-tekst">
+                <b>Celem gry jest dotarcie do Czarnych Wrót i wyjście z labiryntu.<br>
+                Labirynt usiany jest potworami i pułapkami, każdy krok może być Twoim ostatnim.<br><br>
+                Układ gry:<br>
+                Strona prawa: mapa, pozycja drużyny na mapie.<br>
+                Strona lewa: menu.<br><br>
+                Klawiszologia:<br>
+                Użyj klawiszy W, A, S, D do poruszania się po mapie.<br>
+                T - otwórz ekran drużyny<br>
+                K - otwórz ekran komunikatów</b></div>
+            </div>
+    </div>
+    <div class="intro" id="tworcyy" style="display:none">
+        <img class="zamknij" src="img/interfejs/zamknij.png" onclick="tworcyZamknij()">
+        <div class="opis-menu">
+            <div class="opis-tekst">
+                <b>Wykonanie projektu:<br>
+                Rafał Chrzanowski<br>
+                Tobiasz Zieliński<br><br>
+                Pomoc i źródła:<br>
+                mgr.inż. Tomasz Korczak<br>
+                stackoverflow.com<br>
+                Google Fonts<br>
+                W3School<br>
+                Google Grafika</b>
+            </div>
+        </div>
+    </div>
+
+    <div id="wrapper">
+        <div id="mapa"></div>
+        <div id="menu">
+            <div id="zakladki">
+                <div id="siema">
+                <img class="menu-button" onclick="hideContents(),druzyna.show()" src="img/interfejs/druzyna.png">
+                <img class="menu-button" onclick="hideContents(),komunikaty.show()" src="img/interfejs/komunikaty.png">
+                <img class="menu-button" onclick="hideContents(),walka.show()" src="img/interfejs/walka.png">
+                <img class="menu-button" onclick="menu.show()" src="img/interfejs/menu.png">
+                </div>
+            </div>
+            <div class="content" id="contentDruzyna">
+                <img src="img/interfejs/losuj.png" onclick="losowanie_bohaterow()" id="losuj">
+                <div id="bohaterowie"></div>
+            </div>
+        <div class="content" id="contentWalka">
+            <div id="gupek_ze_mnei">
+            <span id="span_atacc">
+            <img src="img/interfejs/atacc.png" id="atacc" class="button_disabled button_atacc" onclick="odbierzHP()">
+            <img src="img/interfejs/negocjuj.png" onclick="negocjacie()" id="nego" class="button_disabled button_atacc">
+            </span>
+            <br><br>
+                <div id="bohaterowieWalka"></div></br>
+                <div id="spelle">
+                        <div>
+                            <div id="hp_opis">Punkty Życia:</div>
+                            <div id="hp"></div>
+                           <div id="hp1"></div>
+                           <div id="hp2"></div>
+                        </div></br>
+                        <div>
+                            <div id="mana_opis">Punkty Many:</div>     
+                                <div id="mana1"></div>
+                                <div id="mana2"></div>
+                                <div id="mana3"></div>
+                        </div></br>
+                    <div id="czary1">
+                            <select name="Czary1" id="spell1" disabled>
+                        <option value="1"> wybuch</option>
+                        <option value="2"> eksplozja</option>
+                        <option value="3"> blyskawica</option>
+                        <option value="4"> zawieszenie broni</option>
+                        <option value="5"> psychiczny cios</option>
+                        <option value="6">sila</option>
+                        <option value="7"> uzdrowienie</option>
+                        <option value="8 "> odmlodzenie</option>
+                        <option value="9"> elokwencja</option>
+                        <option value="10">zastraszenie</option>
+                        <option value="11"> gniew bozy</option>
+                        <option value="12 "> odmlodzenie</option>
+                        <option value="13"> wskrzeszenie</option>
+                             </select>
+                    </div>
+                    <div id="czary2">
+                            <select name="Czary2" id="spell2" disabled>
+                                    <option value="1"> wybuch</option>
+                                    <option value="2"> eksplozja</option>
+                                    <option value="3"> blyskawica</option>
+                                    <option value="4"> zawieszenie broni</option>
+                                    <option value="5"> psychiczny cios</option>
+                                    <option value="6">sila</option>
+                                    <option value="7"> uzdrowienie</option>
+                                    <option value="8 "> odmlodzenie</option>
+                                    <option value="9"> elokwencja</option>
+                                    <option value="10">zastraszenie</option>
+                                    <option value="11"> gniew bozy</option>
+                                    <option value="12 "> odmlodzenie</option>
+                                    <option value="13"> wskrzeszenie</option>
+                                         </select>
+                        </div>
+                        <div id="czary3">
+                                <select name="Czary3" id="spell3" disabled>
+                                        <option value="1"> wybuch</option>
+                                        <option value="2"> eksplozja</option>
+                                        <option value="3"> blyskawica</option>
+                                        <option value="4"> zawieszenie broni</option>
+                                        <option value="5"> psychiczny cios</option>
+                                        <option value="6">sila</option>
+                                        <option value="7"> uzdrowienie</option>
+                                        <option value="8 "> odmlodzenie</option>
+                                        <option value="9"> elokwencja</option>
+                                        <option value="10">zastraszenie</option>
+                                        <option value="11"> gniew bozy</option>
+                                        <option value="12 "> odmlodzenie</option>
+                                        <option value="13"> wskrzeszenie</option>
+                                             </select>
+                            </div>
+                </div></br><br>
+                <div>
+                    
+                        <img src="img/interfejs/czaruj.png" onclick="wybor_czaru()" id="czaruj1" class="button_disabled button_atacc">
+                        <img src="img/interfejs/czaruj.png" onclick="wybor_czaru2()" id="czaruj2" class="button_disabled button_atacc">
+                        <img src="img/interfejs/czaruj.png" onclick="wybor_czaru3()" id="czaruj3" class="button_disabled button_atacc">
+                
+                </div></br><br>
+                <div id="potworyWalka"></div></br>
+                <div>
+                    <div id="hpP_opis">Punkty Życia:</div>
+                    <div id="hpP"></div>
+                    <div id="hpP1"></div>
+                    <div id="hpP2"></div>
+                </div>
+        </div>
+            <div id="siemaa">
+            <div class="content" id="contentKomunikaty"></div>
+            </div>
+            </div>
+        </div>
+        <div id="toastKomunikaty"></div>
+    </div>
+
+    <script type="text/javascript">
+
+
+function sound(plik) {
+    this.sound = document.createElement("audio");
+    this.sound.src = plik;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    this.czyGra = 0;
+    document.body.appendChild(this.sound);
+    this.play = function(){
+      this.sound.play();
+      this.czyGra = 1;
+    }
+    this.stop = function(){
+      this.sound.pause();
+      this.czyGra = 0;
+    }
+  }
+  
+  var titlescreen_music = new sound("ost/titlescreen.mp3");
+
+  var soundAllowed = 1;
+
+  function soundToggle(){
+    if (titlescreen_music.czyGra==1) {
+        titlescreen_music.stop();
+        soundAllowed = 0;
+    }
+    else {
+        titlescreen_music.play();
+        soundAllowed = 1;
+    }
+}
+
+var mapCounter=0;
+function loadNextMap(){
+    if (map[mapCounter][player_y][player_x]==23){
+                    mapCounter+=1;
+                    player_y=0;
+                    player_x=0;
+                    console.log(mapCounter);
+                    init();
+                    gracz();
+                    odkryj();
+    }
+}
+
+                //23 - nowa mapa
+    
+        var map=[[[3,11,19,1,11,11,28],
+                             [1,9,20,20,19,1,19],
+                             [13,1,19,1,6,22,13],
+                             [27,20,20,14,22,1,22],     //0
+                             [1,10,11,4,11,22,2],
+                             [13,1,19,13,23,19,13],
+                             [27,22,27,20,26,24,22]], 
+
+                        [[1,11,18,19,23,11,19],
+                         [27,11,4,20,16,19,13],
+						 [1,25,27,11,14,21,13],
+						 [27,18,11,11,20,22,13],   //1
+						 [3,6,11,11,26,19,13],
+						 [2,13,3,18,10,21,13],
+                         [27,20,9,22,3,20,22]],
+                         
+
+                         [[2,1,16,11,11,18,28],
+                         [13,27,11,11,11,6,19],
+						 [13,1,11,11,25,13,13],
+						 [13,27,9,18,11,20,21],  //2
+						 [13,1,11,21,1,18,21],
+						 [13,13,1,5,14,22,13],
+						 [27,24,22,27,24,11,29]]];
+    
+    
+                    var map_div=document.getElementById("mapa");
+                    var player_x=0;
+                    var player_y=0;
+                    
+                     document.addEventListener("keydown", keyDownHandler, false)
+                     document.addEventListener("keyup", keyUpHandler, false)
+    
+                     var wPressed = false; //walk forward
+                     var sPressed = false; //walk backward
+                   var aPressed = false; //walk left
+                     var dPressed = false; //walk right
+                    var kPressed = false; //komunikaty
+                    var tPressed = false; //druzyna
+    
+                   init();
+                   
+                   
+                function init(){
+    
+                   map_div.innerHTML='';
+                    for(let i=0; i<7;i++){
+                        for(let j=0; j<7;j++){
+                        switch(map[mapCounter][i][j]){
+
+                        case 1:
+                        var block = document.createElement("div");
+                                block.id = i+"."+j;
+                                block.className = "zakryte jeden pozycja";
+                                block.style.top = (i * 138) + "px";
+                                block.style.left = (j * 138) + "px";
+                                map_div.appendChild( block );
+                        break;
+                        
+                        case 2:
+                        var block = document.createElement("div");
+                        block.id = i+"."+j;
+                                block.className = "zakryte dwa pozycja";
+                                block.style.top = (i * 138) + "px";
+                                block.style.left = (j * 138) + "px";
+                                map_div.appendChild( block );
+                        break;
+                        
+                        case 3:
+                        var block = document.createElement("div");
+                        block.id = i+"."+j;
+                                block.className = "zakryte trzy pozycja";
+                                block.style.top = (i * 138) + "px";
+                                block.style.left = (j * 138) + "px";
+                                map_div.appendChild( block );
+                        break;
+                        
+                        case 4:
+                        var block = document.createElement("div");
+                        block.id = i+"."+j;
+                                block.className = "zakryte cztery pozycja";
+                                block.style.top = (i * 138) + "px";
+                                block.style.left = (j * 138) + "px";
+                                map_div.appendChild( block );
+                                s_fontanna();
+                        break;
+                        
+                        case 5:
+                        var block = document.createElement("div");
+                        block.id = i+"."+j;
+                                block.className = "zakryte piec pozycja";
+                                block.style.top = (i * 138) + "px";
+                                block.style.left = (j * 138) + "px";
+                                map_div.appendChild( block );
+                        break;
+                        
+                        case 6:
+                        var block = document.createElement("div");
+                        block.id = i+"."+j;
+                                block.className = "zakryte szesc pozycja";
+                                block.style.top = (i * 138) + "px";
+                                block.style.left = (j * 138) + "px";
+                                map_div.appendChild( block );
+                                s_posag();
+                        break;
+                        
+                        case 7:
+                        var block = document.createElement("div");
+                        block.id = i+"."+j;
+                                block.className = "zakryte siedem pozycja";
+                                block.style.top = (i * 138) + "px";
+                                block.style.left = (j * 138) + "px";
+                                map_div.appendChild( block );
+                        break;
+                        
+                        case 8:
+                        var block = document.createElement("div");
+                        block.id = i+"."+j;
+                                block.className = "zakryte osiem pozycja";
+                                block.style.top = (i * 138) + "px";
+                                block.style.left = (j * 138) + "px";
+                                map_div.appendChild( block );
+                        break;
+                        
+                        case 9:
+                        var block = document.createElement("div");
+                        block.id = i+"."+j;
+                                block.className = "zakryte dziewiec pozycja";
+                                block.style.top = (i * 138) + "px";
+                                block.style.left = (j * 138) + "px";
+                                map_div.appendChild( block );
+                        break;
+                        
+                        case 10:
+                        var block = document.createElement("div");
+                        block.id = i+"."+j;
+                                block.className = "zakryte dziesiec pozycja";
+                                block.style.top = (i * 138) + "px";
+                                block.style.left = (j * 138) + "px";
+                                map_div.appendChild( block );
+                        break;
+                        
+                        case 11:
+                        var block = document.createElement("div");
+                        block.id = i+"."+j;
+                                block.className = "zakryte jedenascie pozycja";
+                                block.style.top = (i * 138) + "px";
+                                block.style.left = (j * 138) + "px";
+                                map_div.appendChild( block );
+                        break;
+                        
+                        case 12:
+                        var block = document.createElement("div");
+                        block.id = i+"."+j;
+                                block.className = "zakryte dwanascie pozycja";
+                                block.style.top = (i * 138) + "px";
+                                block.style.left = (j * 138) + "px";
+                                map_div.appendChild( block );
+                        break;
+                        
+                        case 13:
+                        var block = document.createElement("div");
+                        block.id = i+"."+j;
+                                block.className = "zakryte trzynascie pozycja";
+                                block.style.top = (i * 138) + "px";
+                                block.style.left = (j * 138) + "px";
+                                map_div.appendChild( block );
+                        break;
+                                
+                        case 14:
+                        var block = document.createElement("div");
+                        block.id = i+"."+j;
+                                block.className = "zakryte czternascie pozycja";
+                                block.style.top = (i * 138) + "px";
+                                block.style.left = (j * 138) + "px";
+                                map_div.appendChild( block );
+                        break;
+                            
+                        case 15:
+                        var block = document.createElement("div");
+                        block.id = i+"."+j;
+                                block.className = "zakryte pietnascie pozycja";
+                                block.style.top = (i * 138) + "px";
+                                block.style.left = (j * 138) + "px";
+                                map_div.appendChild( block );
+                        break;
+                                
+                        case 16:
+                        var block = document.createElement("div");
+                        block.id = i+"."+j;
+                                block.className = "zakryte szescnascie pozycja";
+                                block.style.top = (i * 138) + "px";
+                                block.style.left = (j * 138) + "px";
+                                map_div.appendChild( block );
+                        break;
+                        
+                        case 17:
+                        var block = document.createElement("div");
+                        block.id = i+"."+j;
+                                block.className = "zakryte siedemnascie pozycja";
+                                block.style.top = (i * 138) + "px";
+                                block.style.left = (j * 138) + "px";
+                                map_div.appendChild( block );
+                        break;
+                                
+                        case 18:
+                        var block = document.createElement("div");
+                        block.id = i+"."+j;
+                                block.className = "zakryte osiemnascie pozycja";
+                                block.style.top = (i * 138) + "px";
+                                block.style.left = (j * 138) + "px";
+                                map_div.appendChild( block );
+                        break;
+    
+                        case 19:
+                        var block = document.createElement("div");
+                        block.id = i+"."+j;
+                                block.className = "zakryte dziewietnascie pozycja";
+                                block.style.top = (i * 138) + "px";
+                                block.style.left = (j * 138) + "px";
+                                map_div.appendChild( block );
+                        break;
+    
+                        case 20:
+                        var block = document.createElement("div");
+                        block.id = i+"."+j;
+                                block.className = "zakryte dwadziescia pozycja";
+                                block.style.top = (i * 138) + "px";
+                                block.style.left = (j * 138) + "px";
+                                map_div.appendChild( block );
+                        break;
+    
+                        case 21:
+                        var block = document.createElement("div");
+                        block.id = i+"."+j;
+                                block.className = "zakryte dwadziesciajeden pozycja";
+                                block.style.top = (i * 138) + "px";
+                                block.style.left = (j * 138) + "px";
+                                map_div.appendChild( block );
+                        break;
+                        
+                        case 22:
+                        var block = document.createElement("div");
+                        block.id = i+"."+j;
+                                block.className = "zakryte dwadziesciadwa pozycja";
+                                block.style.top = (i * 138) + "px";
+                                block.style.left = (j * 138) + "px";
+                                map_div.appendChild( block );
+                        break;
+                        
+                        case 23:
+                        var block = document.createElement("div");
+                        block.id = i+"."+j;
+                                block.className = "zakryte dwadziesciatrzy pozycja";
+                                block.style.top = (i * 138) + "px";
+                                block.style.left = (j * 138) + "px";
+                                map_div.appendChild( block );
+                        break;
+    
+                        case 24:
+                        var block = document.createElement("div");
+                        block.id = i+"."+j;
+                                block.className = "zakryte dwadziesciacztery pozycja";
+                                block.style.top = (i * 138) + "px";
+                                block.style.left = (j * 138) + "px";
+                                map_div.appendChild( block );
+                        break;
+    
+                        case 25:
+                        var block = document.createElement("div");
+                        block.id = i+"."+j;
+                                block.className = "zakryte dwadziesciapiec pozycja";
+                                block.style.top = (i * 138) + "px";
+                                block.style.left = (j * 138) + "px";
+                                map_div.appendChild( block );
+                        break;
+                        
+                        case 26:
+                        var block = document.createElement("div");
+                        block.id = i+"."+j;
+                                block.className = "zakryte dwadziesciaszesc pozycja";
+                                block.style.top = (i * 138) + "px";
+                                block.style.left = (j * 138) + "px";
+                                map_div.appendChild( block );
+                        break;
+    
+                        case 27:
+                        var block = document.createElement("div");
+                        block.id = i+"."+j;
+                                block.className = "zakryte dwadziesciasiedem pozycja";
+                                block.style.top = (i * 138) + "px";
+                                block.style.left = (j * 138) + "px";
+                                map_div.appendChild( block );
+                        break;
+    
+                        case 28:
+                        var block = document.createElement("div");
+                        block.id = i+"."+j;
+                                block.className = "zakryte dwadziesciaosiem pozycja";
+                                block.style.top = (i * 138) + "px";
+                                block.style.left = (j * 138) + "px";
+                                map_div.appendChild( block );
+                        break;
+                        case 29:
+                    var block = document.createElement("div");
+                    block.id = i+"."+j;
+							block.className = "zakryte dwadziesciadziewiec pozycja";
+							block.style.top = (i * 138) + "px";
+							block.style.left = (j * 138) + "px";
+							map_div.appendChild( block );
+					break;
+                        }
+                        
+                            
+                   
+                        }
+                    map_div.innerHTML+='<br>';
+                   }
+                   
+                   
+                }
+                function gracz(){
+                //add player
+                                
+                                var block = document.createElement("div");
+                                block.id="p"+player_y+"."+player_x;
+                                block.className = "player pozycja";
+                                block.style.top = (player_y*138)+"px";
+                                block.style.left = (player_x*138)+"px";
+                                map_div.appendChild( block );
+                                
+                                
+
+                            
+                        }
+
+                        gracz();
+
+                function event(){
+                    if (map[mapCounter][player_y][player_x]==4) s_fontanna();
+                    if (map[mapCounter][player_y][player_x]==6) s_posag();
+                    if (map[mapCounter][player_y][player_x]==29){ czarneWrota();
+                        console.log("wrota");
+                    }
+                }
+
+                function odkryj(){
+                    let id1=(player_y-1)+"."+player_x;
+                    let id2=(player_y+1)+"."+player_x;
+                    let id3=player_y+"."+(player_x-1);
+                    let id4=player_y+"."+(player_x+1);
+                    if (id1!="-1."+player_x){
+                        if((map[mapCounter][player_y-1][player_x]!=3) && (map[mapCounter][player_y-1][player_x]!=8) && (map[mapCounter][player_y-1][player_x]!=9) && (map[mapCounter][player_y-1][player_x]!=10) && (map[mapCounter][player_y-1][player_x]!=11) && (map[mapCounter][player_y-1][player_x]!=20) && (map[mapCounter][player_y-1][player_x]!=22) && (map[mapCounter][player_y-1][player_x]!=23) && (map[mapCounter][player_y-1][player_x]!=24) && (map[mapCounter][player_y-1][player_x]!=25) && (map[mapCounter][player_y-1][player_x]!=26) && (map[mapCounter][player_y-1][player_x]!=27) && (map[mapCounter][player_y-1][player_x]!=28) && (map[mapCounter][player_y-1][player_x]!=29)){
+                            let klocek1=document.getElementById(id1);
+                            klocek1.classList.remove("zakryte");
+                        }
+                    }
+                    if (id2!="7."+player_x){
+                        if((map[mapCounter][player_y+1][player_x]!=1) && (map[mapCounter][player_y+1][player_x]!=2) && (map[mapCounter][player_y+1][player_x]!=3) && (map[mapCounter][player_y+1][player_x]!=9) && (map[mapCounter][player_y+1][player_x]!=10) && (map[mapCounter][player_y+1][player_x]!=11) && (map[mapCounter][player_y+1][player_x]!=16) && (map[mapCounter][player_y+1][player_x]!=17) && (map[mapCounter][player_y+1][player_x]!=18) && (map[mapCounter][player_y+1][player_x]!=19) && (map[mapCounter][player_y+1][player_x]!=23) && (map[mapCounter][player_y+1][player_x]!=25) && (map[mapCounter][player_y+1][player_x]!=26) && (map[mapCounter][player_y+1][player_x]!=28)){
+                            let klocek2=document.getElementById(id2);
+                            klocek2.classList.remove("zakryte");
+                        }
+                    }
+                    if (id3!=player_y+".-1"){
+                        if((map[mapCounter][player_y][player_x-1]!=2) && (map[mapCounter][player_y][player_x-1]!=13) && (map[mapCounter][player_y][player_x-1]!=19) && (map[mapCounter][player_y][player_x-1]!=21) && (map[mapCounter][player_y][player_x-1]!=22) && (map[mapCounter][player_y][player_x-1]!=25) && (map[mapCounter][player_y][player_x-1]!=28) && (map[mapCounter][player_y][player_x-1]!=29)){
+                            let klocek3=document.getElementById(id3);
+                            klocek3.classList.remove("zakryte");
+                        }
+                    }
+                    if (id4!=player_y+".7"){
+                        if((map[mapCounter][player_y][player_x+1]!=1) && (map[mapCounter][player_y][player_x+1]!=2) && (map[mapCounter][player_y][player_x+1]!=3) && (map[mapCounter][player_y][player_x+1]!=8) && (map[mapCounter][player_y][player_x+1]!=12) && (map[mapCounter][player_y][player_x+1]!=13) && (map[mapCounter][player_y][player_x+1]!=23) && (map[mapCounter][player_y][player_x+1]!=27)){
+                            let klocek4=document.getElementById(id4);
+                            klocek4.classList.remove("zakryte");
+                        }
+                    }
+                    let id0=player_y+"."+player_x;
+                    klocek0=document.getElementById(id0);
+                    klocek0.classList.remove("zakryte");
+
+                }
+
+                
+
+                odkryj();
+                
+                function keyDownHandler(event) {
+    
+    switch (event.keyCode) {
+    case 87:
+        wPressed = true;
+        directionButton = 'w';
+        //console.log("wPressed: " + wPressed);
+        break;
+    
+    case 83:
+        sPressed = true;
+        directionButton = 's';
+        //console.log("sPressed: " + sPressed);
+        break;
+    
+    case 65:
+    aPressed=true;
+    directionButton = 'a';
+    //console.log("aPressed: " + aPressed);
+    break;
+    case 68:
+    dPressed=true;
+    directionButton = 'd';
+    //console.log("dPressed: " + dPressed);
+    break;
+    case 69:
+    ePressed=true;
+    break;
+    case 75:
+    kPressed=true;
+    break;
+    case 84:
+    tPressed=true;
+    break;
+    }
+    
+    
+    }
+    
+    function keyUpHandler(event) {
+    switch (event.keyCode) {
+    case 87:
+        wPressed = false;
+        break;
+    
+    case 83:
+        sPressed = false;
+        break;
+    
+    case 65:
+        aPressed = false;
+        break;
+    
+    case 68:
+        dPressed = false;
+        break;
+    case 69:
+    ePressed=false;
+    break;
+    case 75:
+    kPressed=false;
+    break;
+    case 84:
+    tPressed=false;
+    break;
+    
+    }
+    
+    }
+
+    var isWalka=false;
+    
+                     function move() {
+    
+                    if (kPressed){
+                        hideContents();
+                        komunikaty.show();
+                    }
+
+                    if (tPressed){
+                        hideContents();
+                        druzyna.show();
+                    }
+
+                    
+    
+                         if (wPressed) {
+                             if (isWalka==false){
+                        if(player_y > 0){
+                            if((map[mapCounter][player_y-1][player_x]!=3) && (map[mapCounter][player_y-1][player_x]!=8) && (map[mapCounter][player_y-1][player_x]!=9) && (map[mapCounter][player_y-1][player_x]!=10) && (map[mapCounter][player_y-1][player_x]!=11) && (map[mapCounter][player_y-1][player_x]!=20) && (map[mapCounter][player_y-1][player_x]!=22) && (map[mapCounter][player_y-1][player_x]!=23) && (map[mapCounter][player_y-1][player_x]!=24) && (map[mapCounter][player_y-1][player_x]!=25) && (map[mapCounter][player_y-1][player_x]!=26) && (map[mapCounter][player_y-1][player_x]!=27) && (map[mapCounter][player_y-1][player_x]!=28) && (map[mapCounter][player_y-1][player_x]!=29))
+                            {
+                                if(druzyna.bohaterowie[0]!=23){
+                                    // if (map[mapCounter][player_y][player_x]==23){
+                                    //     loadNextMap();
+                                    //     gracz();
+                                    // }
+                                    // else{
+                                        player_y-=1;
+                                        gracz();
+                                        odkryj();
+                                        spotkanieZpotworem();
+                                        event();
+                                        wPressed = false;
+                                        var ostPozycja="p"+(player_y+1)+"."+player_x;
+                                        var rusz=document.getElementById(ostPozycja);
+                                        rusz.outerHTML="";
+                                    //}
+                                }
+                                else napisz("Najpierw wylosuj drużynę!","Drużyna");
+                            }
+                            else napisz("Nie mozesz przechodzić przez ściany!","System");
+                        }
+                        else napisz("Nie mozesz ruszyć się do góry!","System");
+                             //wPressed = false;
+                            }
+                            else napisz("Najpierw skończ walkę!","System");
+                         } 
+                    else if (sPressed) {
+                             if (isWalka==false){
+                        if(player_y < map[mapCounter].length-1){
+                            if((map[mapCounter][player_y+1][player_x]!=1) && (map[mapCounter][player_y+1][player_x]!=2) && (map[mapCounter][player_y+1][player_x]!=3) && (map[mapCounter][player_y+1][player_x]!=9) && (map[mapCounter][player_y+1][player_x]!=10) && (map[mapCounter][player_y+1][player_x]!=11) && (map[mapCounter][player_y+1][player_x]!=16) && (map[mapCounter][player_y+1][player_x]!=17) && (map[mapCounter][player_y+1][player_x]!=18) && (map[mapCounter][player_y+1][player_x]!=19) && (map[mapCounter][player_y+1][player_x]!=23) && (map[mapCounter][player_y+1][player_x]!=25) && (map[mapCounter][player_y+1][player_x]!=26) && (map[mapCounter][player_y+1][player_x]!=28))
+                            {
+                                 if (druzyna.bohaterowie[0]!=23){
+                                //     if (map[mapCounter][player_y][player_x]==23){
+                                //         loadNextMap();
+                                //         gracz();
+                                //     }
+                                    // else{
+                                        player_y+=1;
+                                        gracz();
+                                        odkryj();
+                                        spotkanieZpotworem();
+                                        event();
+                                        sPressed = false;
+                                        var ostPozycja="p"+(player_y-1)+"."+player_x;
+                                        var rusz=document.getElementById(ostPozycja);
+                                        rusz.outerHTML="";
+                                    //}
+                                }
+                                else napisz("Najpierw wylosuj drużynę!","Drużyna");
+                            }
+                            else napisz("Nie mozesz przechodzić przez ściany!","System");
+                        }
+                        else napisz("Nie mozesz ruszyć się w dół!","System");
+                             }
+                             else napisz("Najpierw skończ walkę!","System");
+                    }
+                        
+                     if(aPressed){
+                        if (isWalka==false){
+                        if(player_x > 0){
+                            if((map[mapCounter][player_y][player_x-1]!=2) && (map[mapCounter][player_y][player_x-1]!=13) && (map[mapCounter][player_y][player_x-1]!=19) && (map[mapCounter][player_y][player_x-1]!=21) && (map[mapCounter][player_y][player_x-1]!=22) && (map[mapCounter][player_y][player_x-1]!=25) && (map[mapCounter][player_y][player_x-1]!=28) && (map[mapCounter][player_y][player_x-1]!=29))
+                            {
+                                if (druzyna.bohaterowie[0]!=23){
+                                    // if (map[mapCounter][player_y][player_x]==23){
+                                    //     loadNextMap();
+                                    //     gracz();
+                                    // }
+                                    // else{
+                                        player_x-=1;
+                                        gracz();
+                                        odkryj();
+                                        spotkanieZpotworem();
+                                        event();
+                                        aPressed = false;
+                                        var ostPozycja="p"+player_y+"."+(player_x+1);
+                                        var rusz=document.getElementById(ostPozycja);
+                                        rusz.outerHTML="";
+                                    //}
+                                }
+                                else napisz("Najpierw wylosuj drużynę!","Drużyna");
+                            }
+                            else napisz("Nie mozesz przechodzić przez ściany!","System");
+                        }
+                        else napisz("Nie mozesz ruszyć się w lewo!","System");
+                    }
+                    else napisz("Najpierw skończ walkę!","System");
+                     }
+                    else if (dPressed) {
+                             if (isWalka==false){
+                        if(player_x < map[mapCounter][0].length-1){
+                            if((map[mapCounter][player_y][player_x+1]!=1) && (map[mapCounter][player_y][player_x+1]!=2) && (map[mapCounter][player_y][player_x+1]!=3) && (map[mapCounter][player_y][player_x+1]!=8) && (map[mapCounter][player_y][player_x+1]!=12) && (map[mapCounter][player_y][player_x+1]!=13) && (map[mapCounter][player_y][player_x+1]!=23) && (map[mapCounter][player_y][player_x+1]!=27))
+                            {
+                                if (druzyna.bohaterowie[0]!=23){
+                                    // if (map[mapCounter][player_y][player_x]==23){
+                                    //     loadNextMap();
+                                    //     gracz();
+                                    // }
+                                    // else{
+                                        player_x+=1;
+                                        gracz();
+                                        odkryj();
+                                        spotkanieZpotworem();
+                                        event();
+                                        dPressed = false;
+                                        var ostPozycja="p"+player_y+"."+(player_x-1);
+                                        var rusz=document.getElementById(ostPozycja);
+                                        rusz.outerHTML="";
+                                    //}
+                                }
+                                else napisz("Najpierw wylosuj drużynę!","Drużyna");
+                            }
+                            else napisz("Nie mozesz przechodzić przez ściany!","System");
+                        }
+                        else napisz("Nie mozesz ruszyć się w prawo!","System");
+                         }
+                         else napisz("Najpierw skończ walkę!","System");
+                    
+                     }
+                     if(hpP<=0 && hpP1<=0 && hpP2<=0){
+                         if (druzyna.potwory[1]==21){
+                             console.log("wygrales gre");
+                             window.open("wygrales.html");
+                             window.close();
+                         }
+                            else {isWalka=false; //koniec walki, potwory pokonane
+                                document.getElementById("atacc").classList.add("button_disabled");
+        document.getElementById("nego").classList.add("button_disabled");
+        document.getElementById("spell1").disabled=true;
+        document.getElementById("spell2").disabled=true;
+        document.getElementById("spell3").disabled=true;
+        document.getElementById("czaruj1").classList.add("button_disabled");
+        document.getElementById("czaruj2").classList.add("button_disabled");
+        document.getElementById("czaruj3").classList.add("button_disabled");
+                                        druzyna.potwory[0]=20;
+                                        druzyna.potwory[1]=20;
+                                        druzyna.potwory[2]=20;
+                                        document.getElementById("hpP").innerHTML="";
+                                        document.getElementById("hpP1").innerHTML="";
+                                        document.getElementById("hpP2").innerHTML="";
+                                        document.getElementById("potworyWalka").innerHTML="<table><tr><td><img class='potwory_jpg' src="+potwory[druzyna.potwory[0]].jpg+
+                                        "></img></td><td><img class='potwory_jpg' src="+potwory[druzyna.potwory[1]].jpg+"></img></td><td><img class='potwory_jpg' src="+potwory[druzyna.potwory[2]].jpg+"></img></td></tr></table>";
+                                        }
+                                    }
+                     }
+    
+            setInterval(move,100);
+            setInterval(loadNextMap,100);
+
+
+            function graj(){
+                document.getElementById("titlescreen").style.display="none";
+            }
+            function opcje(){
+                document.getElementById("settings").style.display="block";
+            }
+            function opcjeZamknij(){
+                document.getElementById("settings").style.display="none";
+            }
+            function howto(){
+                document.getElementById("howtoo").style.display="block";
+            }
+            function howtoZamknij(){
+                document.getElementById("howtoo").style.display="none";
+            }
+            function tworcy(){
+                document.getElementById("tworcyy").style.display="block";
+            }
+            function tworcyZamknij(){
+                document.getElementById("tworcyy").style.display="none";
+            }
+    
+        </script>
+
+    
+</body>
+</html>
